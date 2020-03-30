@@ -14,19 +14,30 @@ The hippocampus is a critical structure of the human brain (and the brain of oth
 
 ![Hippocampus](./readme.img/Hippocampus_small.gif)
 
+**Source**: Life Science Databases (LSDB). **Hippocampus. Images are from Anatomography maintained by Life Science Databases (LSDB)**. (2010). CC-BY-SA 2.1jp. [Link](https://commons.wikimedia.org/wiki/File:Hippocampus_small.gif) 
+
 Humans have two hippocampi, one in each hemishpere of the brain. They are located in the medial temporal lobe of the brain. Fun fact - the word "hippocampus" is roughly translated from Greek as "horselike" because of the similarity to a seahorse, a peculiarity observed by one of the first anatomists to illustrate the structure.
 
-<img src="./readme.img/Hippocampus_and_seahorse_cropped.jpg" width=200/>
+![hippocampus_and_seahorse_cropped](./readme.img/Hippocampus_and_seahorse_cropped.jpg)
 
-According to [studies](https://www.sciencedirect.com/science/article/pii/S2213158219302542), the volume of the hippocampus varies in a population, depending on various parameters, within certain boundaries, and it is possible to identify a "normal" range when taking into account age, sex and brain hemisphere. 
+**Source**: Seress, Laszlo. **Laszlo Seress' preparation of a human hippocampus alongside a sea horse**. (1980). CC-BY-SA 1.0. [Link](https://commons.wikimedia.org/wiki/File:Hippocampus_and_seahorse.JPG) 
 
-<img src="./readme.img/nomogram_fem_right.svg" width=300>
+According to [Nobis et al., 2019](https://www.sciencedirect.com/science/article/pii/S2213158219302542), the volume of hippocampus varies in a population, depending on various parameters, within certain boundaries, and it is possible to identify a "normal" range taking into account the following: 
+- age.
+- sex.
+- hemisphere of the brain.
+
+You can see below where the *Right* Hippocampal volume of *women* across *ages 52 - 71* is shown. 
+
+![nomogram_f_right](./readme.img/nomogram_fem_right.svg)
+
+Figure 4. Nomograms - Female, Right Hippocampus Volume, Corrected for Head Size <br> **Source**: Nobis, L., Manohar, S.G., Smith, S.M., Alfaro-Almagro, F., Jenkinson, M., Mackay, C.E., Husain, M. **Hippocampal volume across age: Nomograms derived from over 19,700 people in UK Biobank**. Neuroimage: Clinical, 23(2019), pp. 2213-1582.
 
 There is one problem with measuring the volume of the hippocampus using MRI scans, though - namely, the process tends to be quite tedious since every slice of the 3D volume needs to be analyzed, and the shape of the structure needs to be traced. The fact that the hippocampus has a non-uniform shape only makes it more challenging. Do you think you could spot the hippocampi in this axial slice?
 
 [TODO: Show same slice as Mazen's lecture] 
 
-<img src="./readme.img/mri.png" width=200>
+![MRI](./readme.img/mri.png)
 
 As you might have guessed by now, we are going to build a piece of AI software that could help clinicians perform this task faster and more consistently.
 
