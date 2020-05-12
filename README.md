@@ -14,24 +14,13 @@ The hippocampus is a critical structure of the human brain (and the brain of oth
 
 ![Hippocampus](./readme.img/Hippocampus_small.gif)
 
-**Source**: Life Science Databases (LSDB). **Hippocampus. Images are from Anatomography maintained by Life Science Databases (LSDB)**. (2010). CC-BY-SA 2.1jp. [Link](https://commons.wikimedia.org/wiki/File:Hippocampus_small.gif) 
-
 Humans have two hippocampi, one in each hemishpere of the brain. They are located in the medial temporal lobe of the brain. Fun fact - the word "hippocampus" is roughly translated from Greek as "horselike" because of the similarity to a seahorse, a peculiarity observed by one of the first anatomists to illustrate the structure.
 
-![hippocampus_and_seahorse_cropped](./readme.img/Hippocampus_and_seahorse_cropped.jpg)
+<img src="./readme.img/Hippocampus_and_seahorse_cropped.jpg" width=200/>
 
-**Source**: Seress, Laszlo. **Laszlo Seress' preparation of a human hippocampus alongside a sea horse**. (1980). CC-BY-SA 1.0. [Link](https://commons.wikimedia.org/wiki/File:Hippocampus_and_seahorse.JPG) 
+According to [studies](https://www.sciencedirect.com/science/article/pii/S2213158219302542), the volume of the hippocampus varies in a population, depending on various parameters, within certain boundaries, and it is possible to identify a "normal" range when taking into account age, sex and brain hemisphere. 
 
-According to [Nobis et al., 2019](https://www.sciencedirect.com/science/article/pii/S2213158219302542), the volume of hippocampus varies in a population, depending on various parameters, within certain boundaries, and it is possible to identify a "normal" range taking into account the following: 
-- age.
-- sex.
-- hemisphere of the brain.
-
-You can see below where the *Right* Hippocampal volume of *women* across *ages 52 - 71* is shown. 
-
-![nomogram_f_right](./readme.img/nomogram_fem_right.svg)
-
-Figure 4. Nomograms - Female, Right Hippocampus Volume, Corrected for Head Size <br> **Source**: Nobis, L., Manohar, S.G., Smith, S.M., Alfaro-Almagro, F., Jenkinson, M., Mackay, C.E., Husain, M. **Hippocampal volume across age: Nomograms derived from over 19,700 people in UK Biobank**. Neuroimage: Clinical, 23(2019), pp. 2213-1582.
+<img src="./readme.img/nomogram_fem_right.svg" width=300>
 
 There is one problem with measuring the volume of the hippocampus using MRI scans, though - namely, the process tends to be quite tedious since every slice of the 3D volume needs to be analyzed, and the shape of the structure needs to be traced. The fact that the hippocampus has a non-uniform shape only makes it more challenging. Do you think you could spot the hippocampi in this axial slice?
 
@@ -142,8 +131,8 @@ You will perform this section in a different workspace than the previous two sec
 Specifically, we have the following software in this setup:
 
 * MRI scanner is represented by a script `section3/src/deploy_scripts/send_volume.sh`. When you run this script it will simulate what happens after a radiological exam is complete, and send a volume to the clinical PACS. Note that scanners typically send entire studies to archives.
-* PACS server is represented by [Orthanc](http://orthanc-server.com/) deployment that is listening to DICOM DIMSE requests on port 4242. Orthanc also has a DicomWeb interface that is exposed at port 8042, prefix /dicom-web. There is no authentication and you are welcome to explore either one of the mechanisms of access using a tool like curl or Postman. Our PACS server is also running an auto-routing module that sends a copy of everything it receives to an AI server. PACS server is launched for you if you are using the Udacity workspace.
-* Viewer system is represented by [OHIF](http://ohif.org/). It is connecting to the Orthanc server using DicomWeb and is serving a web application on port 3000. It is launched for you if you are using the Udacity Workspace.
+* PACS server is represented by [Orthanc](http://orthanc-server.com/) deployment that is listening to DICOM DIMSE requests on port 4242. Orthanc also has a DicomWeb interface that is exposed at port 8042, prefix /dicom-web. There is no authentication and you are welcome to explore either one of the mechanisms of access using a tool like curl or Postman. Our PACS server is also running an auto-routing module that sends a copy of everything it receives to an AI server. See instructions ad the end of this page on how to launch if you are using the Udacity Workspace.  
+* Viewer system is represented by [OHIF](http://ohif.org/). It is connecting to the Orthanc server using DicomWeb and is serving a web application on port 3000. Again, see instructions at the end of this page if you are using the Udacity Workspace.
 * AI server is represented by a couple of scripts. `section3/src/deploy_scripts/start_listener.sh` brings up a DCMTK's `storescp` and configures it to just copy everything it receives into a directory that you will need to specify by editing this script, organizing studies as one folder per study. HippoVolume.AI is the AI module that you will create in this section.
 
 If you want to replicate this environment on your local machine, you will find instructions in the Project Overview concept.
@@ -165,7 +154,7 @@ which will simulate a completion of MRI study and sending of patient data to our
 
 The `send_volume.sh` script needs to be run from directory `section3/src` (because it relies on relative paths). If you did everything correctly, an MRI scan will be sent to the PACS and to your module which will compute the volume, prepare the report and push it back to the PACS so that it could be inspected in our clinical viewer.
 
-At this point, go to *[YOUR IP ADDRESS]*:3000 which brings up our OHIF viewer. You should be able to inspect your report in all its glory, in the context of a radiological study presented to a radiologist in a clinical viewer!
+At this point, go to *[YOUR IP ADDRESS]*:3000 (can be another port if you are using Udacity Workspace) which brings up our OHIF viewer. You should be able to inspect your report in all its glory, in the context of a radiological study presented to a radiologist in a clinical viewer!
 
 The study that `send_result.sh` sends, and a few other sample studies are located in `/data/TestVolumes`. Feel free to modify the script to try out your algorithm with other volumes.
 

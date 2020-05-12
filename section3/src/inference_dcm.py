@@ -293,7 +293,7 @@ if __name__ == "__main__":
     # Send report to our storage archive
     # TASK: Write a command line string that will issue a DICOM C-STORE request to send our report
     # to our Orthanc server (that runs on port 4242 of the local machine), using storescu tool
-    os.system("<COMMAND LINE TO SEND REPORT TO ORTHANC>")
+    os_command("<COMMAND LINE TO SEND REPORT TO ORTHANC>")
 
     # This line will remove the study dir if run as root user
     # Sleep to let our StoreSCP server process the report (remember - in our setup
