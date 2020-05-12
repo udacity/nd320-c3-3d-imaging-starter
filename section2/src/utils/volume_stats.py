@@ -22,14 +22,10 @@ def Dice3d(a, b):
     if a.shape != b.shape:
         raise Exception(f"Expecting inputs of the same shape, got {a.shape} and {b.shape}")
 
-    # not the most efficient implementation, consider counting TP, FP, FN explicitly
-    intersection = sum([1 if (a[x, y, z] != 0 and b[x, y, z] != 0) else 0 for x in range(a.shape[0]) for y in range(a.shape[1]) for z in range(a.shape[2])])
-    volumes = sum(np.ones(a[a != 0].shape)) + sum(np.ones(b[b != 0].shape))
-
-    if volumes == 0:
-        return -1
-
-    return 2.*float(intersection) / float(volumes)
+    # TASK: Write implementation of Dice3D. If you completed exercises in the lessons
+    # you should already have it.
+    # <YOUR CODE HERE>
+    pass
 
 def Jaccard3d(a, b):
     """
@@ -51,7 +47,7 @@ def Jaccard3d(a, b):
         raise Exception(f"Expecting inputs of the same shape, got {a.shape} and {b.shape}")
 
     # TASK: Write implementation of Jaccard similarity coefficient. Please do not use 
-    # the Dice3d function from above to do the computation ;)
+    # the Dice3D function from above to do the computation ;)
     # <YOUR CODE GOES HERE>
 
     return #

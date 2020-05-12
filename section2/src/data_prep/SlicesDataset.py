@@ -27,7 +27,7 @@ class SlicesDataset(Dataset):
             idx {int} -- id of sample
 
         Returns:
-            Dictionary of 2 Torch Tensors of dimensions [1, 1, W, H]
+            Dictionary of 2 Torch Tensors of dimensions [1, W, H]
         """
         slc = self.slices[idx]
         sample = dict()
@@ -38,7 +38,7 @@ class SlicesDataset(Dataset):
         # Also this would be the place to call transforms if data augmentation is used
         
         # TASK: Create two new keys in the "sample" dictionary, named "image" and "seg"
-        # The values are 3D Torch Tensors with image and slice data respectively. 
+        # The values are 3D Torch Tensors with image and label data respectively. 
         # First dimension is size 1, and last two hold the voxel data from the respective
         # slices. Write code that stores the 2D slice data in the last 2 dimensions of the 3D Tensors. 
         # Your tensor needs to be of shape [1, patch_size, patch_size]

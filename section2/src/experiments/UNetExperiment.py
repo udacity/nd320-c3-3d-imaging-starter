@@ -226,12 +226,14 @@ class UNetExperiment:
             # We compute and report Dice and Jaccard similarity coefficients which 
             # assess how close our volumes are to each other
 
-            dc = Dice3d(pred_label, x["seg"])
-
-            # TASK: Jaccard3D function is not implemented. Complete the implementation.
-            # You can look up the definition of Jaccard on Wikipedia. If you completed it
+            # TASK: Dice3D and Jaccard3D functions are not implemented. 
+            #  Complete the implementation as we discussed
+            # in one of the course lessons, you can look up definition of Jaccard index 
+            # on Wikipedia. If you completed it
             # correctly (and if you picked your train/val/test split right ;)),
-            # your average Jaccard on your validation set should be around 0.80
+            # your average Jaccard on your test set should be around 0.80
+
+            dc = Dice3d(pred_label, x["seg"])
             jc = Jaccard3d(pred_label, x["seg"])
             dc_list.append(dc)
             jc_list.append(jc)

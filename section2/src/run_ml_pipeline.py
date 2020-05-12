@@ -46,7 +46,8 @@ if __name__ == "__main__":
     split = dict()
 
     # TASK: create three keys in the dictionary: "train", "val" and "test". In each key, store
-    # the array with indices of training volumes.
+    # the array with indices of training volumes to be used for training, validation 
+    # and testing respectively.
     # <YOUR CODE GOES HERE>
 
     # Set up and run experiment

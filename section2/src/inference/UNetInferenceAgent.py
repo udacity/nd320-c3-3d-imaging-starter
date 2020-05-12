@@ -26,6 +26,20 @@ class UNetInferenceAgent:
 
         self.model.to(device)
 
+    def single_volume_inference_unpadded(self, volume):
+        """
+        Runs inference on a single volume of arbitrary patch size,
+        padding it to the conformant size first
+
+        Arguments:
+            volume {Numpy array} -- 3D array representing the volume
+
+        Returns:
+            3D NumPy array with prediction mask
+        """
+        
+        raise NotImplementedError
+
     def single_volume_inference(self, volume):
         """
         Runs inference on a single volume of conformant patch size

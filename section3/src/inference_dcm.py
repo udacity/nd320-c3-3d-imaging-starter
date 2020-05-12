@@ -15,6 +15,7 @@ import sys
 import datetime
 import time
 import shutil
+import subprocess
 
 import numpy as np
 import pydicom
@@ -237,6 +238,14 @@ def get_series_for_inference(path):
 
     return series_for_inference
 
+def os_command(command):
+    # Comment this if running under Windows
+    sp = subprocess.Popen(["/bin/bash", "-i", "-c", command])
+    sp.communicate()
+
+    # Uncomment this if running under Windows
+    # os.system(command)
+
 if __name__ == "__main__":
     # This code expects a single command line argument with link to the directory containing
     # routed studies
@@ -265,6 +274,9 @@ if __name__ == "__main__":
         parameter_file_path=r"<PATH TO PARAMETER FILE>")
 
     # Run inference
+    # TASK: single_volume_inference_unpadded takes a volume of arbitrary size 
+    # and reshapes y and z dimensions to the patch size used by the model before 
+    # running inference. Your job is to implement it.
     pred_label = inference_agent.single_volume_inference_unpadded(np.array(volume))
     # TASK: get_predicted_volumes is not complete. Go and complete it
     pred_volumes = get_predicted_volumes(pred_label)
